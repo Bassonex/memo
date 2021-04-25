@@ -47,7 +47,7 @@ public class WorkWithObjects {
 
     // Second Homework
     public static void homeWork2(String[] args) {
-        // users
+        // Users
         UserName users = new UserName();
         List<UserName> allUsers = users.getUsers();
 
@@ -55,7 +55,7 @@ public class WorkWithObjects {
         users.addUser(new UserName("Aleksej", "Pupkin"));
         users.addUser(new UserName("Big", "Smoke"));
 
-        //notes
+        // Notes
         Note notes = new Note();
         List<Note> allNotes = notes.getAllNotes();
 
