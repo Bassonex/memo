@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes list</title>
+    <link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="content">
+    <table border="2">
+        <h1>All user created notes</h1>
+        <div th:each="note : ${notes}">
+            <tr>
+                <th><!--for row counter --></th>
+                <td>
+                    <div>Created by: <b style="text-transform: capitalize"
+                                        th:text=" ${note.userName.fullName} +'!'"></b></div>
+                    <div th:text="'Note: '+${note.note}"></div>
+                </td>
+            </tr>
+        </div>
+    </table>
+</div>
+</body>
+</html>
