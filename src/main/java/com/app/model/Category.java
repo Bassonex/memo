@@ -1,6 +1,6 @@
-package model;
+package com.app.model;
 
-import model.enums.NoteCategory;
+import com.app.model.enums.NoteCategory;
 
 // Object
 public class Category {
@@ -8,11 +8,11 @@ public class Category {
     private NoteCategory noteCategory;
 
     // Constructor
-    public Category(String myCategory){
+    public Category(String myCategory) {
         this.myCategory = myCategory;
     }
 
-    public Category(NoteCategory noteCategory){
+    public Category(NoteCategory noteCategory) {
         this.noteCategory = noteCategory;
     }
 

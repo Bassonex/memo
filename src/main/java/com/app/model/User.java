@@ -1,25 +1,43 @@
-package model;
+package com.app.model;
 
-import java.util.ArrayList;
-import java.util.List;
 
 // Object
-public class UserName {
+public class User {
+    private long id;
     private String firstName;
     private String lastName;
-    private List<UserName> users;
+    private String email;
+    private String phone;
+
 
     // Constructor
-    public UserName(String firstName, String lastName){
+    public User(String firstName, String lastName, String email, String phone){
         this.lastName = lastName;
         this.firstName = firstName;
+        this.email = email;
+        this.phone = phone;
     }
-    // Initialize database
-    public UserName() {
-        this.users = new ArrayList<>();
+
+    public User() {
     }
 
     // Getters-Setters
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -36,12 +54,12 @@ public class UserName {
         this.lastName = lastName;
     }
 
-    public List<UserName> getUsers() {
-        return users;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsers(List<UserName> users) {
-        this.users = users;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     // Custom method
@@ -50,9 +68,6 @@ public class UserName {
     }
 
     // Add "note" to the "allNotes" Array
-    public void addUser(UserName user){
-        users.add(user);
-    }
 
     public void printFullName(){
         System.out.println("----------------------------------");
