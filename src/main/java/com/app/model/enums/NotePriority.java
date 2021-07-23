@@ -1,16 +1,17 @@
 package com.app.model.enums;
 
-public enum NoteCategory {
-    HomeWork("Home Work"),
-    JobTask("Job Task"),
-    ShoppingList("Shopping List");
-
+public enum NotePriority {
+    Low("Low"),
+    Moderate("Moderate"),
+    Medium("Medium"),
+    High("High"),
+    Extreme("Extreme");
 
     private String name;
 
     // Constructor
 
-    NoteCategory(String name){
+    NotePriority(String name){
         this.name = name;
     }
 

@@ -1,8 +1,10 @@
 package com.app.model;
 
 import com.app.model.enums.NoteCategory;
+import com.app.model.enums.NotePriority;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 // Object
 public class Note {
@@ -10,19 +12,27 @@ public class Note {
     private long id;
     private String note;
     private String title;
-    private Date date;
-    private String notePriority;
+    private NotePriority notePriority;
     private User user;
     private NoteCategory category;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime dateTime;
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 
     // Constructors
-    public Note(String note, String notePriority, String title) {
+    public Note(String note, NotePriority notePriority, String title) {
         this.note = note;
         this.notePriority = notePriority;
         this.title = title;
     }
 
-    public Note(String note, String notePriority) {
+    public Note(String note, NotePriority notePriority) {
         this.note = note;
         this.notePriority = notePriority;
     }
@@ -31,11 +41,11 @@ public class Note {
         this.note = note;
     }
 
-    public Note(String note, NoteCategory category, Date date, User user, String priority, String title) {
+    public Note(String note, NoteCategory category, LocalDateTime dateTime, User user, NotePriority notePriority, String title) {
         this.note = note;
         this.category = category;
-        this.date = date;
-        this.notePriority = priority;
+        this.dateTime = dateTime;
+        this.notePriority = notePriority;
         this.title = title;
         this.user = user;
     }
@@ -53,11 +63,11 @@ public class Note {
         this.note = note;
     }
 
-    public String getNotePriority() {
+    public NotePriority getNotePriority() {
         return notePriority;
     }
 
-    public void setNotePriority(String notePriority) {
+    public void setNotePriority(NotePriority notePriority) {
         this.notePriority = notePriority;
     }
 
@@ -69,23 +79,17 @@ public class Note {
         this.title = title;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public void setCategory(NoteCategory category) {
         this.category = category;
+    }
+
+    public NoteCategory getCategory() {
+        return category;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
-
-
 
     public User getUserName() {
         user.getFullName();
@@ -94,10 +98,6 @@ public class Note {
 
     public void setUserName(User user) {
         this.user = user;
-    }
-
-    public NoteCategory getCategory() {
-        return category;
     }
 
     public long getId() {

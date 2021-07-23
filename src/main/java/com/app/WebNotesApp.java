@@ -1,9 +1,10 @@
 package com.app;
 
 
-import com.app.model.Category;
 import com.app.model.Note;
 import com.app.model.User;
+import com.app.model.enums.NoteCategory;
+import com.app.model.enums.NotePriority;
 import com.app.services.NoteService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -29,24 +30,20 @@ public class WebNotesApp {
 
         Note products = new Note("Buy milk and bread!");
         Note jobTaskDesc = new Note("Call Gabe Newell and ask about Half-Life 3 development.");
-        Note homeWorkDesc = new Note("Do your homework, math, physic and geometry", "Low", "get help from friend");
-
-        Category shoppingList = new Category("Shopping list");
-        Category jobTask = new Category("Job task");
-        Category homeWork = new Category("Home Work");
+        Note homeWorkDesc = new Note("Do your homework, math, physic and geometry", NotePriority.High, "get help from friend");
 
         user.printFullName();
-        System.out.println(shoppingList.getMyCategory());
+        System.out.println(NoteCategory.ShoppingList);
         products.printNote();
         System.out.println();
 
         userTwo.printFullName();
-        System.out.println(jobTask.getMyCategory());
+        System.out.println(NoteCategory.JobTask);
         jobTaskDesc.printNote();
         System.out.println();
 
         userThree.printFullName();
-        System.out.println(homeWork.getMyCategory());
+        System.out.println(NoteCategory.HomeWork);
         homeWorkDesc.printFullNote();
 
     }
@@ -62,7 +59,7 @@ public class WebNotesApp {
         for (int i = 0; i < allNotes.size(); i++) {
             System.out.println("Category: " + allNotes.get(i).getCategory());
             System.out.println("Note: " + allNotes.get(i).getNote());
-            System.out.println("Date: " + allNotes.get(i).getDate());
+            System.out.println("Date: " + allNotes.get(i).getDateTime());
             System.out.println("Author: " + allNotes.get(i).getUserName().getFullName());
             System.out.println("Priority: " + allNotes.get(i).getNotePriority());
             System.out.println("More info: " + allNotes.get(i).getTitle());
