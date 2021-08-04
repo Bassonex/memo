@@ -1,8 +1,9 @@
 package com.app.services;
 
+import com.app.dao.NoteDao;
 import com.app.dao.NoteDaoImpl;
 import com.app.model.Note;
-import com.app.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -12,20 +13,29 @@ import java.util.List;
 @Service
 public class NoteService {
 
-    NoteDaoImpl noteDao = new NoteDaoImpl();
+    // NOTES FROM DATABASES - TEST
+    @Autowired
+    private NoteDao noteDao;
+
+    public List<Note> getNotesDb(){
+        return noteDao.getNotesDb();
+    }
+
+    // NOTES FROM ARRAYS
+    NoteDaoImpl noteDaoImpl = new NoteDaoImpl();
 
     // Created notes lay here
     public List<Note> getNotes() {
-        return noteDao.getAllNotes();
+        return noteDaoImpl.getAllNotes();
     }
 
     // This method looks for user in Note array, if he exist there then prints his notes
     public List<Note> getUserNotes(String userName) {
-        return noteDao.getUserNotes(userName);
+        return noteDaoImpl.getUserNotes(userName);
     }
 
     public void addNote(Note note) {
-        noteDao.addNote(note);
+        noteDaoImpl.addNote(note);
     }
 
     // Note form validation
@@ -36,7 +46,7 @@ public class NoteService {
             System.out.println("Validation failed!");
             return null;
         }
-        noteDao.addNote(note);
+        noteDaoImpl.addNote(note);
         return note;
     }
 

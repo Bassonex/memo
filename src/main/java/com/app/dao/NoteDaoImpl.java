@@ -2,7 +2,6 @@ package com.app.dao;
 
 import com.app.model.Note;
 import com.app.model.enums.NoteCategory;
-import com.app.model.enums.NotePriority;
 import com.app.services.UserService;
 
 import java.time.LocalDateTime;
@@ -32,19 +31,19 @@ public class NoteDaoImpl {
 
     public List<Note> getAllNotes() {
         if (noteList.size() == 0) {
-            this.startFiller();
+           // this.startFiller();
         }
         return noteList;
     }
 
-    public void startFiller() {
+//    public void startFiller() {
 
-        noteList.add(new Note("Take a walk to the Skyrim landscape and make chaos to citizens.", NoteCategory.JobTask, LocalDateTime.now(), user.get(0), NotePriority.Low, "'find dragonborn'"));
-        noteList.add(new Note("Write a book about programming in Java.", NoteCategory.HomeWork, LocalDateTime.now(), user.get(1), NotePriority.High, "'get info from course'"));
-        noteList.add(new Note("Rush B and don't ask questions, just RUSH B!", NoteCategory.JobTask, LocalDateTime.now(), user.get(2), NotePriority.Medium, "'die while rushing'"));
-        noteList.add(new Note("Request two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda.",
-                NoteCategory.ShoppingList, LocalDateTime.now(), user.get(2), NotePriority.Extreme, "'eat everything'"));
-    }
+//        noteList.add(new Note("Take a walk to the Skyrim landscape and make chaos to citizens.", NoteCategory.JobTask, LocalDateTime.now(), user.get(0), NotePriority.Low, "'find dragonborn'"));
+//        noteList.add(new Note("Write a book about programming in Java.", NoteCategory.HomeWork, LocalDateTime.now(), user.get(1), NotePriority.High, "'get info from course'"));
+//        noteList.add(new Note("Rush B and don't ask questions, just RUSH B!", NoteCategory.JobTask, LocalDateTime.now(), user.get(2), NotePriority.Medium, "'die while rushing'"));
+//        noteList.add(new Note("Request two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda.",
+//                NoteCategory.ShoppingList, LocalDateTime.now(), user.get(2), NotePriority.Extreme, "'eat everything'"));
+//    }
 
     public void addNote(Note note) {
         noteList.add(note);

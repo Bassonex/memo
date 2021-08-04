@@ -35,16 +35,16 @@
             <tr>
                 <th><!--for row counter --></th>
                 <td>
-                    <div>Created by: <b class="txt-cap" th:text="${newNote.userName.fullName}"></b></div>
-                    <div class="txt-italic" th:text="'Title:  '+ ${newNote.title}"></div>
-                    <div class="note-view" th:text="'Note: '+ ${newNote.note}"></div>
-                    <div th:text="'Creation time: '+ ${newNote.dateTime}"></div>
-                    <div th:text="'Category: '+ ${newNote.category}"></div>
-                    <div th:text="'Priority: '+ ${newNote.notePriority}"></div>
-                </td>
-            </tr>
-        </div>
-    </table>
-</div>
-</body>
-</html>
+                    <!--  <div>Created by: <b class="txt-cap" th:text="${newNote.userName.fullName}"></b></div>-->
+                      <div class="txt-italic" th:text="'Title:  '+ ${newNote.title}"></div>
+                      <div class="note-view" th:text="'Note: '+ ${newNote.note}"></div>
+                      <div th:text="'Creation time: '+ ${newNote.dateTime}"></div>
+                      <div th:text="'Category: '+ ${newNote.category}"></div>
+                      <div th:text="'Priority: '+ ${newNote.notePriority}"></div>
+                  </td>
+              </tr>
+          </div>
+      </table>
+  </div>
+  </body>
+  </html>

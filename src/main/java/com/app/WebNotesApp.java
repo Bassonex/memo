@@ -4,7 +4,6 @@ package com.app;
 import com.app.model.Note;
 import com.app.model.User;
 import com.app.model.enums.NoteCategory;
-import com.app.model.enums.NotePriority;
 import com.app.services.NoteService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,7 +29,7 @@ public class WebNotesApp {
 
         Note products = new Note("Buy milk and bread!");
         Note jobTaskDesc = new Note("Call Gabe Newell and ask about Half-Life 3 development.");
-        Note homeWorkDesc = new Note("Do your homework, math, physic and geometry", NotePriority.High, "get help from friend");
+       // Note homeWorkDesc = new Note("Do your homework, math, physic and geometry", NotePriority.High, "get help from friend");
 
         user.printFullName();
         System.out.println(NoteCategory.ShoppingList);
@@ -44,7 +43,7 @@ public class WebNotesApp {
 
         userThree.printFullName();
         System.out.println(NoteCategory.HomeWork);
-        homeWorkDesc.printFullNote();
+       // homeWorkDesc.printFullNote();
 
     }
 

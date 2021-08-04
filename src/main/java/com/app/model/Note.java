@@ -1,7 +1,6 @@
 package com.app.model;
 
-import com.app.model.enums.NoteCategory;
-import com.app.model.enums.NotePriority;
+import com.app.model.NoteCategory;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
@@ -10,8 +9,8 @@ import java.time.LocalDateTime;
 public class Note {
 
     private long id;
-    private String note;
     private String title;
+    private String note;
     private NotePriority notePriority;
     private User user;
     private NoteCategory category;
@@ -121,6 +120,8 @@ public class Note {
         System.out.println("More info: '" + title + "'");
         System.out.println("----------------------------------");
     }
+
+
 }
 
 

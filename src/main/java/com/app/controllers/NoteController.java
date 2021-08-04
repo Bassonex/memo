@@ -1,9 +1,9 @@
 package com.app.controllers;
 
 import com.app.model.Note;
+import com.app.model.NotePriority;
 import com.app.model.User;
 import com.app.model.enums.NoteCategory;
-import com.app.model.enums.NotePriority;
 import com.app.services.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +20,13 @@ public class NoteController {
     @Autowired
     NoteService noteService;
 
+    @GetMapping("/allnotesdb")
+    public String getNotes(Model model) {
+        System.out.println("Success connect to Db!");
+        model.addAttribute("noteData", noteService.getNotesDb());
+
+        return "createdNotes";
+    }
 
     // Homework 3 ----------------------------------------------------------------------------------------------
     // Show all notes from all users
@@ -52,14 +59,14 @@ public class NoteController {
         model.addAttribute("noteData", new Note());  // new Note
         model.addAttribute("userData", new User());  // new User
         model.addAttribute("catData", NoteCategory.values()); // Category selection
-        model.addAttribute("priorData", NotePriority.values()); // Priority selection
+        model.addAttribute("priorData", new NotePriority()); // Priority selection
 
         return "newNote";
     }
 
     // Created notes
     @PostMapping("/created/note")
-    public String createdNote(@ModelAttribute Note newNote, User user, NoteCategory category, NotePriority notePriority, Model model) {
+    public String createdNote(@ModelAttribute Note newNote, User user, com.app.model.NoteCategory category, NotePriority notePriority, Model model) {
 
         model.addAttribute("noteData", newNote);
         model.addAttribute("userData", user);
